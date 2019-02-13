@@ -1,0 +1,36 @@
+user {{ nginx_user }};
+worker_processes {{ nginx_worker_processes }};
+pid /var/run/nginx.pid;
+
+events {
+    worker_connections {{ nginx_worker_connections }};
+    multi_accept {{ nginx_multi_accept }};
+{% if nginx_connection_processor is defined -%}
+    use {{ nginx_connection_processor }};
+{% endif %}
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    access_log {{ nginx_default_access_log }};
+    error_log {{ nginx_default_error_log }};
+
+    sendfile {{ nginx_sendfile }};
+    tcp_nopush {{ nginx_tcp_nopush }};
+    tcp_nodelay {{ nginx_tcp_nodelay }};
+    server_tokens {{ nginx_server_tokens }};
+{% if nginx_client_max_body_size is defined -%}
+    client_max_body_size {{ nginx_client_max_body_size }};
+{% endif %}
+
+    ssl_prefer_server_ciphers {{ nginx_prefer_server_ciphers }};
+    ssl_protocols {{ nginx_protocols }};
+    ssl_ciphers {{ nginx_ciphers }};
+    ssl_ecdh_curve {{ nginx_ecdh_curve}};
+    ssl_session_cache {{ nginx_session_cache }};
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/vhosts/*.conf;
+}

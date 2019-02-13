@@ -1,0 +1,11 @@
+---
+
+- import_tasks: setup.yml
+  tags: nginx.setup
+
+- include_tasks: vhosts.yml
+  tags: nginx.vhosts
+  loop: "{{ nginx_vhosts }}"
+  loop_control:
+    loop_var: vhost
+

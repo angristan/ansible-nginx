@@ -1,0 +1,7 @@
+---
+
+- name: Add vhost
+  template:
+    src: '{{ vhost.template }}'
+    dest: '/etc/nginx/vhosts/{{ vhost.name }}'
+  notify: reload nginx

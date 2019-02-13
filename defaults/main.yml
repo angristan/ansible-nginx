@@ -1,0 +1,33 @@
+---
+
+# APT
+nginx_repo_key_url: http://nginx.org/keys/nginx_signing.key
+
+# Global config
+nginx_user: www-data
+nginx_worker_processes: auto
+nginx_worker_connections: 2048
+nginx_multi_accept: 'on'
+nginx_log_dir: /var/log/nginx
+nginx_default_access_log: /var/log/nginx/access.log
+nginx_default_error_log: /var/log/nginx/error.log
+nginx_sendfile: 'on'
+nginx_tcp_nopush: 'on'
+nginx_tcp_nodelay: 'on'
+nginx_server_tokens: 'off'
+
+# TLS
+nginx_prefer_server_ciphers: 'on'
+nginx_protocols: TLSv1.2
+nginx_ciphers: EECDH+CHACHA20:EECDH+AESGCM:EECDH+AES
+nginx_ecdh_curve: X25519:P-521:P-384:P-256
+nginx_session_cache: shared:SSL:10m
+
+# Logrotate
+nginx_logrotate_frequency: daily
+nginx_logrotate_rotate: 31
+
+# Vhosts
+nginx_default_vhost_enabled: true
+nginx_status_vhost_enabled: true
+nginx_vhosts: []

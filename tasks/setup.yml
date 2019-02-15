@@ -7,6 +7,7 @@
 - name: Configure Nginx official repository (stable)
   apt_repository:
     repo: 'deb http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx'
+    filename: nginx
 
 - name: Install Nginx
   apt:

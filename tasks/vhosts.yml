@@ -3,5 +3,5 @@
 - name: Add vhost
   template:
     src: '{{ vhost.template }}'
-    dest: '/etc/nginx/vhosts/{{ vhost.name }}'
+    dest: '/etc/nginx/vhosts/{{ vhost.name }}.conf'
   notify: reload nginx

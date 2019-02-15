@@ -2,6 +2,7 @@
 
 # APT
 nginx_repo_key_url: http://nginx.org/keys/nginx_signing.key
+nginx_install_from_official_repo: true
 
 # Global config
 nginx_user: www-data

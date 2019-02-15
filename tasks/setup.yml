@@ -3,11 +3,13 @@
 - name: Get Nginx apt key
   apt_key:
     url: '{{ nginx_repo_key_url }}'
+  when: nginx_install_from_official_repo
 
 - name: Configure Nginx official repository (stable)
   apt_repository:
     repo: 'deb http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx'
     filename: nginx
+  when: nginx_install_from_official_repo
 
 - name: Install Nginx
   apt:

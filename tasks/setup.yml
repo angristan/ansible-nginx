@@ -27,6 +27,13 @@
     dest: /etc/nginx/nginx.conf
   notify: reload nginx
 
+- name: Add conf.d/real_ip.conf
+  template:
+    src: real_ip.conf.j2
+    dest: /etc/nginx/conf.d/real_ip.conf
+  notify: reload nginx
+  when: nginx_real_ip_from is defined
+
 - name: Setup logrotate
   template:
     src: logrotate.j2

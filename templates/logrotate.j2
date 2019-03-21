@@ -1,5 +1,5 @@
 {{ ansible_managed | comment(decoration="# ") }}
-{{ nginx_log_dir }}*.log {
+{{ nginx_log_dir }}/*.log {
     {{ nginx_logrotate_frequency }}
     missingok
     rotate {{ nginx_logrotate_rotate }}

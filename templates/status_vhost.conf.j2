@@ -1,5 +1,5 @@
 server {
-    listen 80;
+    listen {{ nginx_status_vhost_port }};
     server_name 127.0.0.1;
 
     location / {

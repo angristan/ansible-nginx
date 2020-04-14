@@ -31,4 +31,5 @@ nginx_logrotate_rotate: 31
 # Vhosts
 nginx_default_vhost_enabled: true
 nginx_status_vhost_enabled: true
+nginx_status_vhost_port: 80
 nginx_vhosts: []

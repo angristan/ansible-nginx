@@ -52,8 +52,8 @@
   notify: reload nginx
 
 - name: Add status vhost
-  copy:
-    src: status_vhost.conf
+  template:
+    src: status_vhost.conf.j2
     dest: /etc/nginx/vhosts/status.conf
   when: nginx_status_vhost_enabled
   notify: reload nginx

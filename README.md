@@ -1,7 +1,5 @@
 # Ansible role for Nginx
 
-[![CircleCI](https://circleci.com/gh/angristan/ansible-nginx.svg?style=svg)](https://circleci.com/gh/angristan/ansible-nginx)
-
 This is a role I made for myself but I tried to make it as reusable as possible while keeping it fitted to my use.
 
 The role will install Nginx from the official APT **stable** repository for Debian or Ubuntu.
